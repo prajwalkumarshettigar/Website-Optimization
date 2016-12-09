@@ -18,10 +18,9 @@ Image compression was done online on [kraken.io](https://kraken.io/web-interface
 Google Fonts was used in a different way by directly using fonts in CSS
 
        @font-face {
-              font-family: OpenSans;
-              src: url(href="//fonts.googleapis.com/css?family=Open+Sans:400");
-              font-weight: normal;
-            }
+            font-family: 'Open Sans';
+            src :url(href="//fonts.googleapis.com/css?family=Open+Sans:400,700");
+          }
 
  CSS File `print.css` was linked to `index.html` with attribute `media = "print`.
 
@@ -42,10 +41,10 @@ To optimize views/pizza.html, modified views/js/main.js so that frames per secon
   so modified these function with.
 
     ```javascript
-    var allPizzas = document.getElementsByClassName("randomPizzaContainer");
-      for (i = 0; i < allPizzas.length; i++){
-      allPizzas[i].style.width = newwidth + "%";
-      }
+    var everyPizza = document.querySelectorAll(".randomPizzaContainer");
+    for (var i = 0; i < everyPizza.length; i++) {
+      everyPizza[i].style.width = newwidth + "%";
+    }
      ```
 
    which solved the Problem.
@@ -61,10 +60,11 @@ To optimize views/pizza.html, modified views/js/main.js so that frames per secon
    Replaced by creating a variable for `document.body.scrollTop / 1250` outside for loop and hence calculating only once.
 
       ```javascript
-       var items = document.querySelectorAll(".mover");
-       var a = document.body.scrollTop / 1250;
-        for ( i = 0; i < items.length; i++){
-        phase = Math.sin(a + i % 5),items[i].style.left = items[i].basicLeft + 100 * phase + "px";
+       var items = document.querySelectorAll('.mover');
+       var temp = document.body.scrollTop / 1250;
+       for (var i = 0; i < items.length; i++) {
+       var phase = Math.sin(temp + (i % 5));
+        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
         }
        ```
 
