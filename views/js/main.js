@@ -438,8 +438,8 @@ var resizePizzas = function(size) {
     }
     var everyPizza = document.querySelectorAll(".randomPizzaContainer");
     // Iterates through pizza elements on the page and changes their widths
-    for (var i = 0; i < everyPizzas.length; i++) {
-      everyPizzas[i].style.width = newwidth + "%";
+    for (var i = 0; i < everyPizza.length; i++) {
+      everyPizza[i].style.width = newwidth + "%";
     }
   }
 
