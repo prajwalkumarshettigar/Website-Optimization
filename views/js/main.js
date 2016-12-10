@@ -512,7 +512,19 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 100; i++) {
+  var pizzaCount;
+  var deviceViewportHeight = window.innerHeight;
+  //calculate the number of pizzas dynamically according to screen height of device
+  if(deviceViewportHeight < 900){
+      pizzaCount = 20;
+  }
+  else if(deviceViewportHeight < 1200){
+      pizzaCount = 30;
+  }
+  else{
+      pizzaCount = 50;
+  }
+  for (var i = 0; i < pizzaCount; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
